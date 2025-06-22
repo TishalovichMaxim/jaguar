@@ -13,7 +13,7 @@ public class Cleaner {
     private void deleteFileRecursively(File f) {
         if (f.isDirectory()) {
             for (File child : f.listFiles()) {
-                deleteFile(child);
+                deleteFileRecursively(child);
             }
             deleteFile(f);
         } else {

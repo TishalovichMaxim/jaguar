@@ -7,6 +7,7 @@ cmp:
 		./src/by/tishalovichm/Consts.java \
 		./src/by/tishalovichm/Utils.java \
 		./src/by/tishalovichm/ProjectCompiler.java \
+		./src/by/tishalovichm/Cleaner.java \
 		./src/by/tishalovichm/ProjectRunner.java \
 		./src/by/tishalovichm/ProjectInitializer.java \
 		./src/by/tishalovichm/CliProcessor.java \
