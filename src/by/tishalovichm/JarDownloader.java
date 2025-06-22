@@ -1,5 +1,9 @@
 package by.tishalovichm;
 
+import by.tishalovichm.data.MavenCoordinates;
+import by.tishalovichm.data.ProjectInfo;
+import by.tishalovichm.factories.UtilsFactory;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,14 +12,26 @@ import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JarDownloader {
+
+    private final Utils utils = UtilsFactory.UTILS;
 
     public void download(
         String groupId,
         String artifactId,
         String version
     ) {
+        var mavenCoords = new MavenCoordinates(groupId, artifactId, version);
+        ProjectInfo projectInfo = utils.readProjectInfo();
+
+        String dependencyStr = utils.getDependencyStr(mavenCoords);
+        if (projectInfo.dependencies() != null && projectInfo.dependencies().contains(dependencyStr)) {
+            throw new RuntimeException("Dependency has already been downloaded");
+        }
+
         String groupPath = groupId.replace('.', '/');
 
         String url = String.format("https://repo.maven.apache.org/maven2/%s/%s/%s/%s-%s.jar",
@@ -44,6 +60,16 @@ public class JarDownloader {
         } catch (IOException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
+
+        List<String> newDependencyList;
+        if (projectInfo.dependencies() != null) {
+            newDependencyList = new ArrayList<>(projectInfo.dependencies());
+        } else {
+            newDependencyList = new ArrayList<>();
+        }
+        newDependencyList.add(dependencyStr);
+        var newProjectInfo = new ProjectInfo(projectInfo.mavenCoordinates(), newDependencyList);
+        utils.writeProjectInfo(newProjectInfo);
     }
 
 }

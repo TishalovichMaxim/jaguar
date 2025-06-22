@@ -3,12 +3,10 @@ package by.tishalovichm;
 import by.tishalovichm.data.MavenCoordinates;
 import by.tishalovichm.data.ProjectInfo;
 import by.tishalovichm.factories.UtilsFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProjectInitializer {
@@ -31,11 +29,8 @@ public class ProjectInitializer {
             String version = scanner.nextLine();
 
             var coords = new MavenCoordinates(groupId, artifactId, version);
-            var projectInfo = new ProjectInfo(coords);
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-            objectMapper.writeValue(new File(Consts.JAGUAR_FILE), projectInfo);
+            var projectInfo = new ProjectInfo(coords, List.of());
+            utils.writeProjectInfo(projectInfo);
 
             String[] mainClassPackageParts = utils.getMainClassPackageParts(coords.groupId(), coords.artifactId());
 
@@ -50,7 +45,7 @@ public class ProjectInitializer {
             Files.createDirectory(projectPath.resolve(Path.of("build")));
             Files.createDirectory(projectPath.resolve(Path.of("libs")));
         } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 

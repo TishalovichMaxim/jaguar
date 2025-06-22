@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 
 public class Consts {
     public static final String JAGUAR_FILE = "Jaguarfile.json";
+    public static final Path JAGUAR_FILE_PATH = Path.of(JAGUAR_FILE);
     public static final String BUILD_FILE = "Buildfile";
     public static final String MAIN_CLASS_CODE = """
         public class Main {
