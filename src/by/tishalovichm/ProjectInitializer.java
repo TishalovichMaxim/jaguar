@@ -2,6 +2,7 @@ package by.tishalovichm;
 
 import by.tishalovichm.data.MavenCoordinates;
 import by.tishalovichm.data.ProjectInfo;
+import by.tishalovichm.factories.UtilsFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 public class ProjectInitializer {
 
-    private static final Utils utils = Factory.UTILS;
+    private static final Utils utils = UtilsFactory.UTILS;
 
     private String createPackageLine(String[] dirsNames) {
         return "package %s;".formatted(String.join(".", dirsNames));

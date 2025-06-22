@@ -3,11 +3,15 @@ cmp:
 		./src/by/tishalovichm/data/MavenCoordinates.java \
 		./src/by/tishalovichm/data/ProjectInfo.java \
 		./src/by/tishalovichm/FilesCollector.java \
+		./src/by/tishalovichm/JarDownloader.java \
+		./src/by/tishalovichm/Consts.java \
+		./src/by/tishalovichm/Utils.java \
 		./src/by/tishalovichm/ProjectCompiler.java \
 		./src/by/tishalovichm/ProjectRunner.java \
 		./src/by/tishalovichm/ProjectInitializer.java \
 		./src/by/tishalovichm/CliProcessor.java \
-		./src/by/tishalovichm/Factory.java \
+		./src/by/tishalovichm/factories/Factory.java \
+		./src/by/tishalovichm/factories/UtilsFactory.java \
 		./src/by/tishalovichm/Main.java
 
 run:

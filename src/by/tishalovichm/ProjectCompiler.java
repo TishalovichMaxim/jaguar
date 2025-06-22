@@ -1,5 +1,7 @@
 package by.tishalovichm;
 
+import by.tishalovichm.factories.Factory;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

@@ -1,4 +1,6 @@
-package by.tishalovichm;
+package by.tishalovichm.factories;
+
+import by.tishalovichm.*;
 
 public class Factory {
 
@@ -10,6 +12,6 @@ public class Factory {
 
     public static final ProjectRunner PROJECT_RUNNER = new ProjectRunner();
 
-    public static final Utils UTILS = new Utils();
+    public static final JarDownloader JAR_DOWNLOADER = new JarDownloader();
 
 }

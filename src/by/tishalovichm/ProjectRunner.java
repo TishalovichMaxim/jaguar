@@ -2,6 +2,7 @@ package by.tishalovichm;
 
 import by.tishalovichm.data.MavenCoordinates;
 import by.tishalovichm.data.ProjectInfo;
+import by.tishalovichm.factories.UtilsFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.nio.file.Path;
 
 public class ProjectRunner {
 
-    private static final Utils utils = Factory.UTILS;
+    private final Utils utils = UtilsFactory.UTILS;
 
     public void run(Path project) {
         Path jaguarfilePath = project.resolve(Consts.JAGUAR_FILE);
