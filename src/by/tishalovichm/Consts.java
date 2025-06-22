@@ -16,7 +16,7 @@ public class Consts {
         }
         """;
     public static final Path SRC_DIR = Path.of("src");
-    public static final Path BUILD_DIR = Path.of("build");
+    public static final Path BUILD_DIR_PATH = Path.of("build");
     public static final Path LIBS_DIR = Path.of("libs");
     public static final Duration PROCESS_TIMEOUT = Duration.of(3_500L, ChronoUnit.MILLIS);
 }

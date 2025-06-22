@@ -14,4 +14,6 @@ public class Factory {
 
     public static final JarDownloader JAR_DOWNLOADER = new JarDownloader();
 
+    public static final Cleaner CLEANER = new Cleaner();
+
 }

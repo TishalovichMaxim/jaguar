@@ -52,6 +52,9 @@ public class CliProcessor {
                         jarDownloader.download(dep.groupId(), dep.artifactId(), dep.version())
                     );
             }
+            case "clean" -> {
+                Factory.CLEANER.clean();
+            }
         }
     }
 

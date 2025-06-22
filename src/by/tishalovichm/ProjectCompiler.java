@@ -12,7 +12,7 @@ public class ProjectCompiler {
     private final FilesCollector filesCollector = Factory.FILES_COLLECTOR;
 
     public static Path getBuildfilePath() {
-        return Consts.BUILD_DIR.resolve(Consts.BUILD_FILE);
+        return Consts.BUILD_DIR_PATH.resolve(Consts.BUILD_FILE);
     }
 
     public static void createBuildfile() {
