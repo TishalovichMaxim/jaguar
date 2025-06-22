@@ -34,6 +34,8 @@ public class CliProcessor {
                 projectCompiler.compileUsingBuildfile();
             }
             case "run" -> {
+                ProjectCompiler projectCompiler = Factory.PROJECT_COMPILER;
+                projectCompiler.compileUsingBuildfile();
                 ProjectRunner projectRunner = Factory.PROJECT_RUNNER;
                 projectRunner.run(Path.of("."));
             }
